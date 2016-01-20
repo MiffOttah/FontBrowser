@@ -20,28 +20,38 @@ $(function(){
                 source: window.FontNames
             });
             fcbInput.on('blur', function(){
-                $('#lipsum').css('font-family', '"' + fcbInput.val() + '"');
+                setFont(fcbInput.val());
+            });
+            var fcbButton = $('<button type="button" class="combobutton"><span class="ui-icon ui-icon-triangle-1-s"></span></button>').appendTo(fontComboBox);
+
+            var stComboBox = $('#sampletext-combobox');
+            var stcbInput = $('<input type="text" value="The quick onyx goblin jumps over the lazy dwarf.">').appendTo(stComboBox);
+            stcbInput.on('blur', function(){
+                $('#lipsum').text(stcbInput.val());
+            });
+            var stcbButton = $('<button type="button" class="combobutton"><span class="ui-icon ui-icon-triangle-1-s"></span></button>').appendTo(stComboBox);
+
+            var fontsizeSpinner = $('#fontsize-spinner');
+            var fssInput = $('<input type="text" value="12">').appendTo(fontsizeSpinner);
+            fssInput.spinner({
+                change: function(){ $('#lipsum').css({'font-size': fssInput.val() + 'pt'}); },
+                spin: function(){ $('#lipsum').css({'font-size': fssInput.val() + 'pt'}); }
             });
 
-            //var text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-            //var size = "32px";
-            //
-            //for(var i = 0; i < fonts.length; i++) {
-            //    var node = document.createElement("p");        
-            //    $(node).css("font-family", "'" + fonts[i].fontName + "'");
-            //    $(node).css("font-size", size);
-            //    $(node).addClass("sample-text");
-            //    $(node).html(text);
-            //    $("#content").append(node);
-            //
-            //    var nameNode = document.createElement("p");
-            //    $(nameNode).addClass("sample-text-name");
-            //    $(nameNode).html("[" + fonts[i].fontName + "]");
-            //    $("#content").append(nameNode);
-            //}
+            setFont(window.FontNames[Math.floor(Math.random() * window.FontNames.length)]);
+
+            $('#lipsum').css({
+                'width': ($(window).width() / 2) + 'px',
+                'left': ($(window).width() / 4) + 'px'
+            }).resizable().draggable();
         });
 
     } else {
         console.log('Incompatible flash version');
     }
 });    
+
+function setFont(face){
+    $('#font-combobox input').val(face);
+    $('#lipsum').css('font-family', '"' + face + '"');
+}

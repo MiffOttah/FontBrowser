@@ -27,18 +27,20 @@ body {
     width: 50%;
 
     position: absolute;
-    top: 30%;
+    top: 300px;
     left: 25%;
 
     background: white;
     color: black;
 
-    padding: 1em;
+    font-size: 12pt;
+
+    padding: 20px;
     box-shadow: 10px 10px 0 black;
 }
 
 #controls {
-    height: 150px;
+    height: 200px;
     width: 100%;
     background: #ccc;
 
@@ -49,11 +51,37 @@ body {
     padding: 1em;
 }
 
-input {
-    padding: 0.1em 0.2em;
+#controls p {
+    margin: 0.5em;
+}
+
+#controls p b {
+    font-weight: normal;
+    display: inline-block;
+    width: 6em;
+}
+
+#controls p input {
+    width: 200px;
+    height: 26px;
+    font-size: 12pt;
+    padding: 5px 2px;
     background: white;
     color: black;
+    vertical-align: middle;
 }
+
+.combobutton {
+    width: 26px;
+    height: 26px;
+    background: white;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#controls p #fontsize-spinner input { width: 4em; }
+
 
 body.loading {
     background: #aaa url("loading.gif") no-repeat center center;
