@@ -37,6 +37,7 @@ body {
 
     padding: 20px;
     box-shadow: 10px 10px 0 black;
+    box-sizing: content-box;
 }
 
 #controls {
@@ -81,6 +82,22 @@ body {
 }
 
 #controls p #fontsize-spinner input { width: 4em; }
+
+ul.menu {
+    box-sizing: content-box;
+    position: absolute;
+    display: none;
+
+    max-height: 50vh;
+    overflow: auto;
+}
+ul.menu li {
+    font-size: 12pt;
+
+    /* jQuery UI hacks */
+    border: 1px solid white;
+    margin: 0 !important;
+}
 
 
 body.loading {
