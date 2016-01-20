@@ -1,57 +1,25 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Font Detect</title>
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/reset/reset-min.css"> 
-  <link rel="stylesheet" type="text/css" href="stylesheets/font-detect.css" />  
-  <link rel="stylesheet" type="text/css" media="print" href="stylesheets/font-detect-print.css" />
+	<title>FontBrowser</title>
+	<link rel="stylesheet" type="text/css" href="fontbrowser.css">
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
 </head>
-<body>
-  
-  <div id="content">            
-    <div class="noprint">
-      <p id="status"><span>Checking Flash version...</span> &#151; <a href="edit.html">Edit</a></p>
-    </div>
-  </div>
+<body class="loading">
+  	<div id="font-detect-swf"></div>
 
-  <div id="font-detect-swf"></div>
-  
-  <script src="javascripts/jquery-1.2.6.pack.js"></script>
-  <script src="javascripts/swfobject.js"></script>
-  <script src="javascripts/font-detect.js"></script>  
-  <script>
-    $(document).ready(function() {
-      
-      // Check Flash version
-      if (!swfobject.hasFlashPlayerVersion("9.0.0"))
-        $("#status span").html("You don't have a compatible version of Flash installed?");
-      else
-        $("#status span").html("Loading... (this may beach ball your browser for ~10 seconds)")
-      
-        var fontDetect = new FontDetect("font-detect-swf", "flash/FontList.swf", function(fd) {        
-          var fonts = fd.fonts();
-            
-          $("#status span").html("Loaded " + fonts.length + " fonts");
-        
-          var text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-          var size = "32px";
-        
-          for(var i = 0; i < fonts.length; i++) {
-            var node = document.createElement("p");        
-            $(node).css("font-family", "'" + fonts[i].fontName + "'");
-            $(node).css("font-size", size);
-            $(node).addClass("sample-text");
-            $(node).html(text);
-            $("#content").append(node);
+  	<div id="controls">
+  		<p>Font: <span id="font-combobox"></span></p>
+  	</div>
 
-            var nameNode = document.createElement("p");
-            $(nameNode).addClass("sample-text-name");
-            $(nameNode).html("[" + fonts[i].fontName + "]");
-            $("#content").append(nameNode);
-          }
-      });
-      
-    });    
-    
-  </script>
+  	<div id="lipsum">
+  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper, sem at ultricies rutrum, libero neque vulputate velit, ultrices mattis metus nulla at orci. In hac habitasse platea dictumst.</p>
+  	</div>
+
+	<script src="javascripts/jquery-2.2.0.min.js"></script>
+	<script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script src="javascripts/swfobject.js"></script>
+	<script src="javascripts/font-detect.js"></script>
+	<script src="javascripts/fontbrowser.js"></script>
 </body>
 </html>

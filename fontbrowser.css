@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    font-size: 100%;
+    box-sizing: inherit;
+}
+html, body {
+    line-height: 1;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background: #aaa;
+    color: black;
+}
+body {
+    min-height: 100vh;
+}
+
+#lipsum {
+    display: block;
+    width: 50%;
+
+    position: absolute;
+    top: 30%;
+    left: 25%;
+
+    background: white;
+    color: black;
+
+    padding: 1em;
+    box-shadow: 10px 10px 0 black;
+}
+
+#controls {
+    height: 150px;
+    width: 100%;
+    background: #ccc;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding: 1em;
+}
+
+input {
+    padding: 0.1em 0.2em;
+    background: white;
+    color: black;
+}
+
+body.loading {
+    background: #aaa url("loading.gif") no-repeat center center;
+}
+.loading #controls, .loading #lipsum { display: none; }
