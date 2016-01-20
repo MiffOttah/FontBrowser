@@ -1,1 +1,1 @@
-This isn't anything just yet, check back soon!
+A small web app for viewing short strings in fonts, based on font-detect-js by Gabriel Handford.
